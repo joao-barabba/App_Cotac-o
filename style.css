@@ -1,0 +1,53 @@
+/*Global =======================================================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Resetando a borda da caixa pelo tamanho definido da caixa e não pelo conteúdo*/
+}
+:root{
+    --dark-blue: #363f5f;/* Declarando Variáveis no CSS*/
+    --green: #49AA26;
+    --light-green:#3dd705;
+}
+html{
+    font-size: 93.75% /* 15px - Trabalhando a Responsividade*/;
+}
+body{
+    background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+#container{
+    width:min(90vw,800px);/*Largura definada para no minimo 90vw ou 800px da tela do usuário*/
+    margin: auto;
+}
+/*Conteudo Geral =======================================================*/
+#cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--green);
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+#cabecalho .logo-main{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#cabecalho h1{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.2rem;
+    margin-bottom: .8rem;
+    color: #f0f2f5;
+    font-weight: 400;
+    font-size: 7rem;
+}
+#cabecalho img{
+    height: 7rem;
+    color: #f0f2f5;
+    margin-top: 3.2rem;
+    margin-bottom: .8rem;
+}
