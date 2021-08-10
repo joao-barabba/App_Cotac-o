@@ -1,53 +1,136 @@
 /*Global =======================================================*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /*Resetando a borda da caixa pelo tamanho definido da caixa e não pelo conteúdo*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*Resetando a borda da caixa pelo tamanho definido da caixa e não pelo conteúdo*/
 }
-:root{
-    --dark-blue: #363f5f;/* Declarando Variáveis no CSS*/
-    --green: #49AA26;
-    --light-green:#3dd705;
+:root {
+  --dark-blue: #363f5f; /* Declarando Variáveis no CSS*/
+  --green: #49aa26;
+  --light-green: #3dd705;
 }
-html{
-    font-size: 93.75% /* 15px - Trabalhando a Responsividade*/;
+html {
+  font-size: 93.75% /* 15px - Trabalhando a Responsividade*/;
 }
-body{
-    background: #f0f2f5;
-    font-family: 'Poppins', sans-serif;
+body {
+  background: #f0f2f5;
+  font-family: "Poppins", sans-serif;
 }
-#container{
-    width:min(90vw,800px);/*Largura definada para no minimo 90vw ou 800px da tela do usuário*/
-    margin: auto;
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(
+    90vw,
+    800px
+  ); /*Largura definada para no minimo 90vw ou 800px da tela do usuário*/
+  margin: auto;
 }
 /*Conteudo Geral =======================================================*/
-#cabecalho{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--green);
-    padding: 2rem 0 10rem;
-    text-align: center;
+#cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+  padding: 2rem 0 10rem;
+  text-align: center;
 }
-#cabecalho .logo-main{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    
+#cabecalho .logo-main {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
-#cabecalho h1{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3.2rem;
-    margin-bottom: .8rem;
-    color: #f0f2f5;
-    font-weight: 400;
-    font-size: 7rem;
+#cabecalho h1 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: #f0f2f5;
+  font-weight: 400;
+  font-size: 7rem;
 }
-#cabecalho img{
-    height: 7rem;
-    color: #f0f2f5;
-    margin-top: 3.2rem;
-    margin-bottom: .8rem;
+#cabecalho img {
+  height: 7rem;
+  color: #f0f2f5;
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+}
+#container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0f2f5;
+  width: min(55.6vw, 449px);
+  height: 15rem;
+  padding: 10px;
+  margin-top: -7rem;
+  border-radius: 5px;
+  box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
+}
+#container form input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+  width: 100%;
+  box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
+}
+#container form .input-group {
+  margin-top: 1rem;
+}
+
+#container form .btn {
+  margin-top: 1rem;
+  width: 6rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--light-green);
+  color: #f0f2f5;
+  height: 2rem;
+  box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
+  cursor: pointer;
+  text-transform: ;
+}
+#container form .btn:hover {
+  background: var(--green);
+  color: #363f5f;
+}
+/*Footer =======================================================*/
+#rodape {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--dark-blue);
+  visibility: visible;
+  opacity: 0.6;
+}
+#rodape .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#rodape img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  color: #f0f2f5;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+}
+#rodape h3 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-weight: 400;
+  font-size: 2rem;
+}
+/*Responsive =======================================================*/
+@media(min-width:800px){/*A partir de 800px ele usará esta estilização*/
+    html{
+        font-size: 87.5%;
+    }
 }
