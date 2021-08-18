@@ -1,31 +1,53 @@
+"use strict";
+//Pegando elementos html e colocando em variaveis
+const label_from_currency = document.getElementById('from_currency');
+const input_from_ammount = document.getElementById('from_ammount');
+const label_to_currency = document.getElementById('to_currency');
+const input_to_ammount = document.getElementById('to_ammount');
 
-const input_to_amount = document.getElementById('to_amount')
-const to_dollar = document.querySelector('.response')
-const moeda = {"USD": "Dollar","BRL": "Real"}
+const tax_info = document.getElementById('tax_info');
+const swap = document.getElementById('swap');
 
-async function calculate(){
-    let from = moeda[1]
-    let to = moeda[0]
-    let { rates } = await getURL(`https://api.exchangerate-api.com/v4/latest/${from}`)
-    let rate = rates[to]
-    to_dollar.innerHTML = `O valor em Dolar agora é ${input_to_amount.value}`
-}
+label_from_currency.addEventListener('change', calculate);
+input_from_ammount.addEventListener('input', calculate);
+label_to_currency.addEventListener('change', calculate);
+input_to_ammount.addEventListener('input', calculate);
+swap.addEventListener('click', infoSwap);
 
+main();// Chamada Função Principal
 
 function main() {
-    calculate() 
+  let currency = { "BRL": "Real", "EUR": "Euro", "USD": "Dollar" };
+  let options = [];//Options vázios pro Select buscar na API
+  for (var [key, value] of Object.entries(currency)) {
+    options.push(`<option value='${key}'>${value}</option>`);
+  }
+  //Acionando Option na Label
+  label_from_currency.innerHTML = options.join('\n');
+  label_to_currency.innerHTML = options.join('\n');
+  calculate();// Chamada da função
 }
-async function getURL(url){
-    return(await fetch(url)).json()
+
+function infoSwap() {// Função para troca de valores nos inputs
+  let temp = label_from_currency.value;
+  label_from_currency.value = label_to_currency.value;
+  label_to_currency.value = temp;
+  calculate();
 }
 
-main()
+async function getURL(url) {
+  return (await fetch(url)).json();
+}
 
+function getInfoSelect(select) {
+  return select.options[select.selectedIndex].text;// Para adcionar o nome correto da moeda
+}
 
-
-input_to_amount.addEventListener('input',calculate())
-to_dollar.addEventListener('click', calculate())
-                          
-console.log(from) 
-//input_from_amount.addEventListener('input',cotar())
-
+async function calculate() {
+  let from = label_from_currency.value;
+  let to = label_to_currency.value;
+  let { rates } = await getURL(`https://api.exchangerate-api.com/v4/latest/${from}`);
+  let rate = rates[to];
+  tax_info.innerText = `1 ${getInfoSelect(label_from_currency)} = ${rate} ${getInfoSelect(label_to_currency)}`
+  input_to_ammount.value = (input_from_ammount.value * rate).toFixed(2);
+}

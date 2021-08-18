@@ -36,7 +36,7 @@ body {
   text-align: center;
 }
 #cabecalho .logo-main {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -47,58 +47,63 @@ body {
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
   color: #f0f2f5;
-  font-weight: 400;
-  font-size: 7rem;
+  font-weight: 100;
+  font-size: 5rem;
 }
 #cabecalho img {
-  height: 7rem;
+  height: 5rem;
   color: #f0f2f5;
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
 }
-#container form {
+#container .box {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   align-items: center;
   background: #f0f2f5;
-  width: min(55.6vw, 449px);
-  height: 15rem;
+  width:100%;
+  height: 18rem;
   padding: 10px;
   margin-top: -7rem;
   border-radius: 5px;
   box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
 }
-#container form input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#container .box input {
   border: none;
   border-radius: 0.2rem;
   padding: 0.8rem;
   width: 100%;
   box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
 }
-#container form .input-group {
-  margin-top: 1rem;
+#container button{
+  padding: .5rem;
+  margin: .5rem;
+  background: var(--green);
+  border:  none;
+  border-radius: 5px;
+  color: #f0f2f5;
+  cursor: pointer;
+}
+#container button:hover{
+  box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
+  background: var(--light-green);
+}
+#container span{
+  display: flex;
+  color: var(--dark-blue);
+  opacity: 0.6;
+  margin-bottom: .5rem;
+}
+#container select{
+  cursor: pointer;
+  border-radius: 5px;
+  width: 6rem;
+  border: none;
+
 }
 
-#container form .btn {
-  margin-top: 1rem;
-  width: 6rem;
-  border-radius: 10px;
-  border: none;
-  background: var(--light-green);
-  color: #f0f2f5;
-  height: 2rem;
-  box-shadow: 2px 5px 15px 5px rgba(163, 161, 161, 0.5);
-  cursor: pointer;
-  text-transform: ;
-}
-#container form .btn:hover {
-  background: var(--green);
-  color: #363f5f;
-}
 /*Footer =======================================================*/
 #rodape {
   text-align: center;
@@ -134,4 +139,13 @@ body {
     html{
         font-size: 87.5%;
     }
+
+}
+@media(max-width:600px){
+  #cabecalho h1{
+    font-size: 3rem;
+  }
+  #cabecalho img{
+    height: 3rem;
+  }
 }
